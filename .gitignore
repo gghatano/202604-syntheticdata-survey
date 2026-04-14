@@ -5,6 +5,8 @@ __pycache__/
 .claude/*
 !.claude/agents/
 !.claude/agents/**
+!.claude/skills/
+!.claude/skills/**
 *.egg-info/
 
 # Large raw data (keep spec, not the dataset itself)
