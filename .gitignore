@@ -2,7 +2,9 @@ __pycache__/
 *.pyc
 *.pyo
 .venv/
-.claude/
+.claude/*
+!.claude/agents/
+!.claude/agents/**
 *.egg-info/
 
 # Large raw data (keep spec, not the dataset itself)

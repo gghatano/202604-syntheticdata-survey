@@ -13,7 +13,13 @@
 | 03 | *(予定)* PrivBayes / AIM 追加 | — | dpmm pipelines | — | 同上 |
 | 04 | *(予定)* 別データセット (Mushroom 等) | — | 未定 | — | — |
 
-新しい実験を追加する際は、[§4 新規実験の受け入れ方針](#4-新規実験の受け入れ方針) を参照。
+新しい実験を追加する際は、[§4 新規実験の受け入れ方針](#4-新規実験の受け入れ方針) と以下のドキュメント群を参照する:
+
+- [`docs/process.md`](docs/process.md) — 実験の全体フロー (spec → tasks → 実装 → グリッド → 集計 → レビュー → report → PR)
+- [`docs/templates/kickoff_checklist.md`](docs/templates/kickoff_checklist.md) — 新規実験キックオフ時のチェックリスト
+- [`docs/templates/report_template.md`](docs/templates/report_template.md) — レポート雛形
+- [`docs/review.md`](docs/review.md) — 7 観点の独立レビューエージェント (`.claude/agents/review-*`) の運用手順
+- [`docs/spec.md`](docs/spec.md) — 比較実験の仕様書 v0.2
 
 ---
 
@@ -22,8 +28,22 @@
 ```text
 .
 ├── README.md              ← このファイル (実験索引)
+├── .claude/
+│   └── agents/            レビューエージェント定義 (7 観点)
+│       ├── review-experiment-execution.md
+│       ├── review-interpretation.md
+│       ├── review-experiment-management.md
+│       ├── review-config-management.md
+│       ├── review-documentation.md
+│       ├── review-test-quality.md
+│       └── review-uiux-quality.md
 ├── docs/
 │   ├── spec.md            仕様書 v0.2 (比較方針・評価指標・受入基準)
+│   ├── process.md         実験の全体フロー (spec→tasks→実装→グリッド→レビュー→report)
+│   ├── review.md          レビューエージェントの運用手順
+│   ├── templates/
+│   │   ├── report_template.md       レポート雛形
+│   │   └── kickoff_checklist.md     新規実験キックオフ時のチェックリスト
 │   ├── tasks/             spec を 8 タスクに分解したタスク定義
 │   │   ├── README.md      タスク一覧と依存グラフ
 │   │   ├── 01-investigation.md       T01 実装調査
@@ -51,7 +71,8 @@
 │   │   │   ├── preprocessing.py        共通前処理 (ビニング・top-K・整数エンコード)
 │   │   │   ├── run_all.py              (参考実装、実運用は run_grid.sh を使用)
 │   │   │   ├── aggregate.py            per-run JSON → results/*.csv 集計
-│   │   │   └── visualize.py            results/plots/*.png 生成
+│   │   │   ├── visualize.py            results/plots/*.png 生成
+│   │   │   └── baseline.py             real↔real baseline 計算 (安全性指標の解釈基準)
 │   │   └── evaluation/
 │   │       ├── utility.py              TVD / JS / MI / 下流タスク / 多様性
 │   │       ├── privacy.py              DCR / NNDR / exact match / NN-MIA / 属性推定
@@ -123,9 +144,16 @@
 ### 4.3 レポート
 
 - 実験ごとに `docs/report_<nn>_<shortname>.md` を作成し、本 README の実験一覧に行を追加する (`docs/report.md` は実験 01 専用として残す)
+- テンプレートは [`docs/templates/report_template.md`](docs/templates/report_template.md) を使う
 - 再実行手順は `docs/rerun.md` に追記するか、規模が大きければ `docs/rerun_<nn>.md` に分離
 
-### 4.4 結果ファイル
+### 4.4 レビュー
+
+- report 執筆後・PR 作成前に 7 観点の独立レビューエージェントを起動する (詳細 [`docs/review.md`](docs/review.md))
+- 観点: 実験実行 / 結果解釈 / 実験管理 / 構成管理 / ドキュメント / テスト品質 / UI-UX 品質
+- すべて `.claude/agents/review-*.md` に定義済みで、Task ツールから `subagent_type=review-<name>` で並列起動可能
+
+### 4.5 結果ファイル
 
 - `results/` 直下は「最新実験の集計」と位置づけ、実験ごとのアーカイブは `results/archive/<YYYYMMDD>_<nn>/` にコピーしてから新しい実験を流す
 - プロット PNG も同じポリシー
