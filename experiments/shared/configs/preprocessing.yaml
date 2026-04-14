@@ -1,0 +1,29 @@
+adult:
+  drop_cols:
+    - fnlwgt
+  categorical_cols:
+    - workclass
+    - education
+    - marital-status
+    - occupation
+    - relationship
+    - race
+    - sex
+    - native-country
+    - income
+  numeric_cols:
+    - age
+    - education-num
+    - capital-gain
+    - capital-loss
+    - hours-per-week
+  bins:
+    age: 10
+    capital-gain: 5
+    capital-loss: 5
+    hours-per-week: 10
+    education-num: 5
+  top_k:
+    native-country: 10
+  missing_token: "__NA__"
+  target_col: income

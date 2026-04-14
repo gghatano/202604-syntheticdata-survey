@@ -1,0 +1,10 @@
+{
+  "impl": "mst_dpmm",
+  "epsilon": 1.0,
+  "seed": 1,
+  "n_synth": 5000,
+  "elapsed_fit": 298.7769168339437,
+  "elapsed_sample": 0.04342111304868013,
+  "peak_mem_mb": 2.8614139556884766,
+  "status": "ok"
+}

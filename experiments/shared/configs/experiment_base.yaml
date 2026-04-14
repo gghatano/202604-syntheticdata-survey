@@ -1,0 +1,10 @@
+dataset: adult
+n_synth: same_as_input
+repeats: 5
+timeout_fit_sec: 1800
+timeout_sample_sec: 600
+output_dir: results
+implementations:
+  - smartnoise
+  - private_pgm
+  - dpmm

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.claude/
+*.egg-info/
+
+# Large raw data (keep spec, not the dataset itself)
+experiments/shared/data/raw/*.csv
+experiments/shared/data/raw/*.data
+
+# Per-run synth csvs are regenerable; keep JSONs for provenance
+experiments/mst_*/results/synth_*.csv
+
+/tmp/

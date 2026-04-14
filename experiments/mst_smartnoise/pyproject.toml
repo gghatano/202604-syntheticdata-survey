@@ -1,0 +1,25 @@
+# Environment setup (spec §6.3):
+#   uv init --python 3.11
+#   uv add smartnoise-synth pandas scikit-learn matplotlib psutil memory-profiler pyyaml
+[project]
+name = "mst-smartnoise"
+version = "0.1.0"
+description = "MST runner using smartnoise-synth"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "smartnoise-synth",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "psutil",
+    "memory-profiler",
+    "pyyaml",
+    "private-pgm @ git+https://github.com/ryan112358/private-pgm.git@e9ea5fcac62e2c5b92ae97f7afe2648c04432564",
+    "disjoint-set",
+    "jax<0.5",
+    "jaxlib<0.5",
+]
+
+[tool.uv]
+package = false
+override-dependencies = ["pyyaml>=6", "numpy<2", "jax<0.5", "jaxlib<0.5", "pandas<2"]

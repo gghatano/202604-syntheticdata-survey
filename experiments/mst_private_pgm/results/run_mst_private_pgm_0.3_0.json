@@ -1,0 +1,10 @@
+{
+  "impl": "mst_private_pgm",
+  "epsilon": 0.3,
+  "seed": 0,
+  "n_synth": 5000,
+  "elapsed_fit": 242.43825916189235,
+  "elapsed_sample": 0.0017955390503630042,
+  "peak_mem_mb": 4.677046775817871,
+  "status": "ok"
+}

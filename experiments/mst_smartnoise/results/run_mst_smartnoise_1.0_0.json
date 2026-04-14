@@ -1,0 +1,10 @@
+{
+  "impl": "mst_smartnoise",
+  "epsilon": 1.0,
+  "seed": 0,
+  "n_synth": 5000,
+  "elapsed_fit": 242.52984903997276,
+  "elapsed_sample": 0.06623548804782331,
+  "peak_mem_mb": 50.02579402923584,
+  "status": "ok"
+}

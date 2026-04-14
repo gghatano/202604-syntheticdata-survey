@@ -1,0 +1,17 @@
+# Setup:
+#   uv init --python 3.11
+#   uv add tmlt.private_pgm pandas scikit-learn matplotlib psutil memory-profiler pyyaml
+[project]
+name = "mst-private-pgm"
+version = "0.1.0"
+description = "MST runner using tmlt.private_pgm"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "tmlt.private_pgm",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "psutil",
+    "memory-profiler",
+    "pyyaml",
+]

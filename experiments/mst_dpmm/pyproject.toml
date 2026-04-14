@@ -1,0 +1,17 @@
+# Setup:
+#   uv init --python 3.11
+#   uv add dpmm pandas scikit-learn matplotlib psutil memory-profiler pyyaml
+[project]
+name = "mst-dpmm"
+version = "0.1.0"
+description = "MST runner using the dpmm library"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "dpmm",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "psutil",
+    "memory-profiler",
+    "pyyaml",
+]
