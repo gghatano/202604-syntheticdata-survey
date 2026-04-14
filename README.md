@@ -6,12 +6,21 @@
 
 ## 1. 実験一覧
 
+**完了した実験** のみここに記載する。未実施・計画中の実験は [GitHub Issues (label: experiment)](https://github.com/gghatano/202604-syntheticdata-survey/issues?q=is%3Aissue+label%3Aexperiment) で管理している。
+
 | # | 実験名 | ステータス | 対象 | レポート | データ |
 |---|---|---|---|---|---|
 | 01 | MST 3 実装比較 (初回) | ✅ 完了 (2026-04-14) | smartnoise-synth / ryan112358 private-pgm / dpmm | [`docs/report.md`](docs/report.md) | UCI Adult 5k subsample, eps ∈ {0.3, 1.0, 3.0}, seed ∈ {0,1} |
-| 02 | *(予定)* eps 両端 + フルデータ再実験 | — | 01 と同 | — | Adult 32k, eps ∈ {0.1, 0.3, 1.0, 3.0, 10.0}, seed 5 本 |
-| 03 | *(予定)* PrivBayes / AIM 追加 | — | dpmm pipelines | — | 同上 |
-| 04 | *(予定)* 別データセット (Mushroom 等) | — | 未定 | — | — |
+
+### 候補実験 (Issue で管理)
+
+| Issue | 実験名 | 優先度の目安 |
+|---|---|---|
+| [#4](https://github.com/gghatano/202604-syntheticdata-survey/issues/4) | exp02: epsilon 両端追加 + フル Adult 32k 再実験 | 後回し可 (01 の結論再確認になる可能性) |
+| [#5](https://github.com/gghatano/202604-syntheticdata-survey/issues/5) | exp03: PrivBayes / AIM を加えた 3 アルゴリズム比較 | **推奨: 高** (共通基盤の旨味が最大) |
+| [#6](https://github.com/gghatano/202604-syntheticdata-survey/issues/6) | exp04: 別データセット (Mushroom/Bank/Credit) での横展開 | 中 (exp03 後に推奨) |
+
+新しい実験アイデアは Issue を立てて `experiment` ラベルを付ける。着手時に該当 Issue を "in progress" にし、完了したら実験一覧の表に行を追加して Issue を close する。
 
 新しい実験を追加する際は、[§4 新規実験の受け入れ方針](#4-新規実験の受け入れ方針) と以下のドキュメント群を参照する:
 
