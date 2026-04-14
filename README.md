@@ -14,11 +14,20 @@
 
 ### 候補実験 (Issue で管理)
 
-| Issue | 実験名 | 優先度の目安 |
-|---|---|---|
-| [#4](https://github.com/gghatano/202604-syntheticdata-survey/issues/4) | exp02: epsilon 両端追加 + フル Adult 32k 再実験 | 後回し可 (01 の結論再確認になる可能性) |
-| [#5](https://github.com/gghatano/202604-syntheticdata-survey/issues/5) | exp03: PrivBayes / AIM を加えた 3 アルゴリズム比較 | **推奨: 高** (共通基盤の旨味が最大) |
-| [#6](https://github.com/gghatano/202604-syntheticdata-survey/issues/6) | exp04: 別データセット (Mushroom/Bank/Credit) での横展開 | 中 (exp03 後に推奨) |
+| Issue | 実験名 | 優先度 | カテゴリ |
+|---|---|---|---|
+| [#5](https://github.com/gghatano/202604-syntheticdata-survey/issues/5) | exp03: PrivBayes / AIM を加えた 3 アルゴリズム比較 | **高** | アルゴリズム拡張 |
+| [#9](https://github.com/gghatano/202604-syntheticdata-survey/issues/9) | exp05: マスター/トランザクション (1:N 関係データ) の DP 合成 | **高** | データ構造拡張 |
+| [#10](https://github.com/gghatano/202604-syntheticdata-survey/issues/10) | exp06: 混合型データ (連続値ネイティブ) — CTGAN/TVAE vs MST | **高** | アルゴリズム種別拡張 |
+| [#6](https://github.com/gghatano/202604-syntheticdata-survey/issues/6) | exp04: 別データセット (Mushroom/Bank/Credit) での横展開 | 中 | データ横展開 |
+| [#11](https://github.com/gghatano/202604-syntheticdata-survey/issues/11) | exp07: 非 DP ベースラインとの対比 (DP tax の数値化) | 中 | 評価文脈補強 |
+| [#12](https://github.com/gghatano/202604-syntheticdata-survey/issues/12) | exp08: Shadow model MIA の追加 (安全性評価強化) | 中 | 安全性評価 |
+| [#4](https://github.com/gghatano/202604-syntheticdata-survey/issues/4) | exp02: epsilon 両端追加 + フル Adult 32k 再実験 | 後回し可 | 条件拡張 |
+| [#13](https://github.com/gghatano/202604-syntheticdata-survey/issues/13) | exp09: 時系列イベントデータの合成 (PAR/TimeGAN) | 後回し可 | データ構造拡張 (exp05 後) |
+| [#14](https://github.com/gghatano/202604-syntheticdata-survey/issues/14) | exp10: Synthcity ベンチマークスイート導入 (統一評価) | 後回し可 | 評価基盤整備 |
+
+**実験フロー (初期おすすめ順)**:
+exp03 (アルゴ比較) → exp05 (関係データ基盤) → exp06 (混合型) → exp04 (データ横展開) → exp07/08 (評価文脈補強) → exp09/10 (発展)
 
 新しい実験アイデアは Issue を立てて `experiment` ラベルを付ける。着手時に該当 Issue を "in progress" にし、完了したら実験一覧の表に行を追加して Issue を close する。
 
